@@ -12,7 +12,7 @@ public class Thread2 implements Runnable {
     List<Novel> novelList = new ArrayList<>();
     SqlSession sqlSession;
     Mysql mysql = new Mysql();
-    int i = 1;
+    int i = 2
     public Thread2() {
         try {
             sqlSession = mysql.getSqlSessionOfNovel();
@@ -23,7 +23,7 @@ public class Thread2 implements Runnable {
     public void run(){
         try {
             Thread.sleep(10000);
-            novelList.add(mysql.selectNovelById(sqlSession,1));
+            novelList.add(mysql.selectNovelById(sqlSession,1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }catch (IOException e){
