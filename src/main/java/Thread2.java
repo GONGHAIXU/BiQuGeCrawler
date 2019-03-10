@@ -12,25 +12,24 @@ public class Thread2 implements Runnable {
     List<Novel> novelList = new ArrayList<>();
     SqlSession sqlSession;
     Mysql mysql = new Mysql();
+    int i = 1;
     public Thread2() {
         try {
             sqlSession = mysql.getSqlSessionOfNovel();
-            for(int i = 1 ; i < 10 ; i ++){
-                    novelList.add(mysql.selectNovelById(sqlSession,i));
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void run(){
-        //线程先休眠以免存取小说内容的表中无内容产生bug
         try {
             Thread.sleep(10000);
+            novelList.add(mysql.selectNovelById(sqlSession,1));
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
         }
-        int i = 10;
-            //爬取章节直到结束
+        //爬取章节直到结束
             while(!novelList.isEmpty()){
                 Document doc = Until.getDoc(novelList.get(0).getUrl());
                 Elements elements = Until.getChapterLink(doc);
