@@ -5,7 +5,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 //工具类
-public class Until {
+public class Util {
     static final String novelUrl = "http://www.xbiquge.la/xiaoshuodaquan/";
     static final String baseUrl = "http://www.xbiquge.la/";
     //获得Document对象
